@@ -19,7 +19,12 @@ while True:
 
     if opcao == 'd':
         print("Depósito")
-
+        deposito = int(input("Quanto você dejesa depositar? "))
+        if deposito >= 0:
+            saldo = deposito + saldo
+        else:
+            print("Voce não pode depositar valores negativos!!")
+        print(saldo)
     elif opcao == 's':
         print("Saque")
 
