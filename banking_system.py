@@ -19,7 +19,7 @@ while True:
 
     if opcao == 'd':
         print("Depósito")
-        deposito = int(input("Quanto você dejesa depositar? "))
+        deposito = float(input("Quanto você dejesa depositar? "))
         if deposito >= 0:
             saldo = deposito + saldo
         else:
@@ -27,7 +27,21 @@ while True:
         print(saldo)
     elif opcao == 's':
         print("Saque")
+        saques_restantes = LIMITE_SAQUES
+        if saques_restantes == 0:
+            print("Você ultrapassou o seu limite de saque!!")
+            
+        else:
+            saque = float(input("Digite o valor que deseja sacar até 500 reais"))
+            if saque <= 500:
+                saldo = saldo - saque
+            else:
+                print("Você não pode sacar este valor")
+            saques_restantes = saques_restantes - 1
+        print(saques_restantes)
+        print(saldo)
 
+        
     elif opcao == "e":
         print("Extrato")
 
