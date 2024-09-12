@@ -13,6 +13,7 @@ limite = 500
 extrato = ""
 numero_saques = 0
 saque_list = []
+deposito_list = []
 LIMITE_SAQUES = 3
 
 while True:
@@ -23,6 +24,7 @@ while True:
         deposito = float(input("Quanto você dejesa depositar? "))
         if deposito >= 0:
             saldo = deposito + saldo
+            deposito_list.append(deposito)
         else:
             print("Voce não pode depositar valores negativos!!")
         print(saldo)
@@ -49,6 +51,15 @@ while True:
         
     elif opcao == "e":
         print("Extrato")
+        if deposito_list == []  and saque_list == []:
+            print("Não foram realizadas movimentações")
+        else:
+            print(f"""
+    ############# EXTRATO ##################
+    Depósitos realizados: R$ {deposito_list}
+    Saques realizados: R$ {saque_list}
+    Saldo em conta: R$ {saldo}
+    """)
 
     elif opcao == "q":
         break
