@@ -55,11 +55,13 @@ while True:
             print("Não foram realizadas movimentações")
         else:
             print(f"""
-    ############# EXTRATO ##################
-    Depósitos realizados: R$ {deposito_list}
-    Saques realizados: R$ {saque_list}
-    Saldo em conta: R$ {saldo}
-    """)
+                    ############## EXTRATO ##############
+                  
+                    Depósitos realizados: R$ {deposito_list}
+                    Saques realizados: R$ {saque_list}
+                    Saldo em conta: R$ {saldo}
+                    
+                    ############################################### """)
 
     elif opcao == "q":
         break
