@@ -12,6 +12,7 @@ saldo = 0
 limite = 500
 extrato = ""
 numero_saques = 0
+saque_list = []
 LIMITE_SAQUES = 3
 
 while True:
@@ -27,18 +28,22 @@ while True:
         print(saldo)
     elif opcao == 's':
         print("Saque")
-        saques_restantes = LIMITE_SAQUES
-        if saques_restantes == 0:
+        if numero_saques >= 3:
             print("Você ultrapassou o seu limite de saque!!")
             
         else:
-            saque = float(input("Digite o valor que deseja sacar até 500 reais"))
+            saque = float(input("Digite o valor que deseja sacar até 500 reais => "))
             if saque <= 500:
-                saldo = saldo - saque
+                if saldo >= saque:
+                    saldo = saldo - saque
+                    numero_saques = numero_saques + 1
+                    saque_list.append(saque)
+                else:
+                    print("O seu saque não pode ser maior que o valor em conta!!")
             else:
                 print("Você não pode sacar este valor")
-            saques_restantes = saques_restantes - 1
-        print(saques_restantes)
+            
+        print(numero_saques)
         print(saldo)
 
         
